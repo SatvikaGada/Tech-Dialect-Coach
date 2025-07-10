@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeechAI Pro - AI-Powered Interview Coach</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<!-- Security Indicator -->
+<div class="security-indicator">
+    <span class="security-status"></span> Secure Connection
+</div>
+
+<!-- Notification -->
+<div class="notification" id="notification"></div>
+
+<!-- Main Container -->
+<div class="container">
+    <!-- Header -->
+    <div class="header">
+        <h1>SpeechAI Pro</h1>
+        <p>AI-Powered Interview Coach with Advanced Speech Analysis</p>
+    </div>
+
+    <!-- Main Panel -->
+    <div class="main-panel">
+        <!-- Nav Tabs -->
+        <div class="nav-tabs">
+            <button class="nav-tab active" id="practice-tab">🎯 Practice</button>
+            <button class="nav-tab" id="contribute-tab">➕ Contribute</button>
+            <button class="nav-tab" id="analytics-tab">📊 Analytics</button>
+        </div>
+
+        <!-- Content Sections -->
+        <div class="content">
+            <!-- Practice Section -->
+            <div id="practice-section" class="question-section active">
+                <div class="question-category">
+                    <div class="question-category">
+                        <button class="category-btn active" data-category="general">
+                            General Questions
+                        </button>
+                        <button class="category-btn" data-category="interview">
+                            CS Interview Questions
+                        </button>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-text" id="current-question">
+                        Click "Get New Question" to start your practice session
+                    </div>
+                    <div class="question-meta">
+                        <span id="question-category">Category: General</span> •
+                        <span id="question-difficulty">Difficulty: Medium</span>
+                    </div>
+                </div>
+
+                <div class="recording-section">
+                    <button class="record-btn" id="record-btn" onclick="toggleRecording()">
+                        🎤
+                    </button>
+                    <div>
+                        <strong id="recording-status">Click to start recording</strong>
+                    </div>
+                    <div class="audio-visualizer">
+                        <div class="waveform" id="waveform"></div>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <button class="btn btn-primary" onclick="getNewQuestion()" style="margin-right: 10px;">
+                            Get New Question
+                        </button>
+                        <button class="btn btn-secondary" onclick="analyzeResponse()" id="analyze-btn" disabled>
+                            Analyze Response
+                        </button>
+                    </div>
+                </div>
+
+                <div class="analysis-panel" id="analysis-panel">
+                    <h3 style="margin-bottom: 25px; color: #2d3436;">📊 AI Analysis Results</h3>
+
+                    <div class="score-grid">
+                        <div class="score-card">
+                            <div class="score-value" id="pronunciation-score">--</div>
+                            <div class="score-label">Pronunciation</div>
+                        </div>
+                        <div class="score-card">
+                            <div class="score-value" id="grammar-score">--</div>
+                            <div class="score-label">Grammar</div>
+                        </div>
+                        <div class="score-card">
+                            <div class="score-value" id="fluency-score">--</div>
+                            <div class="score-label">Fluency</div>
+                        </div>
+                        <div class="score-card">
+                            <div class="score-value" id="confidence-score">--</div>
+                            <div class="score-label">Confidence</div>
+                        </div>
+                    </div>
+
+                    <div class="feedback-section">
+                        <div class="feedback-title">🎯 Key Improvements</div>
+                        <ul class="feedback-list" id="feedback-list">
+                            <li class="feedback-item">Complete your recording to see detailed feedback</li>
+                        </ul>
+                    </div>
+
+                    <div class="sample-answer">
+                        <div class="sample-title">💡 Sample Response (UK English)</div>
+                        <div id="sample-response">Record your answer to see a sample response with proper pronunciation and structure.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contribute Section -->
+            <div id="contribute-section" class="question-section">
+                <h2 style="margin-bottom: 30px; color: #2d3436;">Contribute Questions</h2>
+                <div class="contribute-form">
+                    <div class="form-group">
+                        <label class="form-label">Question Category</label>
+                        <select class="form-input" id="contribute-category">
+                            <option value="general">General Questions</option>
+                            <option value="interview">CS Interview Questions</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Question Text</label>
+                        <textarea class="form-input form-textarea" id="contribute-question"
+                                  placeholder="Enter your question here..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Key Keywords (comma-separated)</label>
+                        <input type="text" class="form-input" id="contribute-keywords"
+                               placeholder="e.g., leadership, teamwork, problem-solving">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Sample Answer</label>
+                        <textarea class="form-input form-textarea" id="contribute-sample"
+                                  placeholder="Provide a sample answer..."></textarea>
+                    </div>
+                    <button class="btn btn-primary" onclick="contributeQuestion()">
+                        Submit Question
+                    </button>
+                </div>
+            </div>
+
+            <!-- Analytics Section -->
+            <div id="analytics-section" class="question-section">
+                <h2 style="margin-bottom: 30px; color: #2d3436;">Your Progress Analytics</h2>
+                <div class="score-grid">
+                    <div class="score-card">
+                        <div class="score-value" id="total-sessions">0</div>
+                        <div class="score-label">Total Sessions</div>
+                    </div>
+                    <div class="score-card">
+                        <div class="score-value" id="avg-score">--</div>
+                        <div class="score-label">Average Score</div>
+                    </div>
+                    <div class="score-card">
+                        <div class="score-value" id="improvement">--</div>
+                        <div class="score-label">Improvement</div>
+                    </div>
+                    <div class="score-card">
+                        <div class="score-value" id="streak">0</div>
+                        <div class="score-label">Day Streak</div>
+                    </div>
+                </div>
+
+                <div class="feedback-section">
+                    <div class="feedback-title">📈 Performance Insights</div>
+                    <ul class="feedback-list" id="analytics-insights">
+                        <li class="feedback-item">Complete more sessions to see detailed analytics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript Files -->
+<script src="js/app-state.js"></script>
+<script src="js/ui-controls.js"></script>
+<script src="js/questions.js"></script>
+<script src="js/recording.js"></script>
+<script src="js/analysis.js"></script>
+<script src="js/security.js"></script>
+<script src="js/init.js"></script>
+</body>
+</html>
