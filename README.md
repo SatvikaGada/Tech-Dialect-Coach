@@ -45,7 +45,7 @@ project-root/
 │   ├── js/               # JavaScript modules
 │   │   ├── app-state.js  # Data management
 │   │   ├── analysis.js   # Speech evaluation logic
-│   │   └── ...           # Other components
+│   │   └──...          # Other components
 │   └── index.html        # Main interface
 ├── LICENSE
 └── README.md
@@ -56,7 +56,7 @@ project-root/
 ### Local Deployment
 1. Clone the repository  https://github.com/SatvikaGada/Tech-Dialect-Coach.git
 ```
-git clone 
+git clone https://github.com/SatvikaGada/Tech-Dialect-Coach.git
 ```
 
 2. Launch development server  
