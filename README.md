@@ -1,56 +1,44 @@
-Tech-Dialect-Coach
+# Tech-Dialect-Coach  
 A Speech Analysis and Interview Preparation Tool
 
-Project Description
+## Project Description
+
 Tech-Dialect-Coach is a web-based application designed to help users improve their interview skills through AI-powered speech analysis. The system provides:
 
-Practice sessions with categorized questions (General/Technical)
+- Practice sessions with categorized questions (General / Technical)  
+- Real-time recording and analysis of verbal responses  
+- Detailed feedback on pronunciation, grammar, and fluency  
+- Progress tracking and performance analytics  
 
-Real-time recording and analysis of verbal responses
+## Key Features
 
-Detailed feedback on pronunciation, grammar, and fluency
+### Interactive Practice Interface
+- Dynamic question loading from predefined sets  
+- Audio recording via browser microphone  
 
-Progress tracking and analytics
+### Speech Analysis
+- Pronunciation scoring  
+- Grammar and fluency evaluation  
+- Confidence level assessment  
 
-Key Features
-Interactive Practice Interface
+### User Contributions
+- Community-driven question bank  
+- Local storage for user-submitted questions  
 
-Dynamic question loading from predefined sets
+### Progress Tracking
+- Session history  
+- Performance metrics  
+- Improvement trends  
 
-Audio recording via browser microphone
+## Technical Implementation
 
-Speech Analysis
+### Frontend
+- Languages: HTML5, CSS3, JavaScript (ES6+)  
+- Libraries: Web Speech API, MediaRecorder API  
+- Storage: localStorage for persistent data  
 
-Pronunciation scoring
-
-Grammar and fluency evaluation
-
-Confidence level assessment
-
-User Contributions
-
-Community-driven question bank
-
-Local storage for user-submitted questions
-
-Progress Tracking
-
-Session history
-
-Performance metrics
-
-Improvement trends
-
-Technical Implementation
-Frontend
-Languages: HTML5, CSS3, JavaScript (ES6+)
-
-Libraries: Web Speech API, MediaRecorder API
-
-Storage: localStorage for persistent data
-
-Architecture
-text
+### Architecture
+```
 project-root/
 ├── src/
 │   ├── css/              # Stylesheets
@@ -61,36 +49,37 @@ project-root/
 │   └── index.html        # Main interface
 ├── LICENSE
 └── README.md
-Installation and Usage
-Local Deployment
-Clone the repository:
+```
 
-bash
-git clone https://github.com/SatvikaGada/Tech-Dialect-Coach.git
-Launch development server:
+## Installation and Usage
 
-bash
+### Local Deployment
+1. Clone the repository  https://github.com/SatvikaGada/Tech-Dialect-Coach.git
+```
+git clone 
+```
+
+2. Launch development server  
+```
 python -m http.server 8000
-Access via browser at http://localhost:8000/src
+```
 
-System Requirements
-Modern browser (Chrome 90+, Firefox 85+)
+3. Access in browser  
+Open `http://localhost:8000/src` in your browser.
 
-Microphone access permissions
+## System Requirements
+- Modern browser (Chrome 90+, Firefox 85+)  
+- Microphone access permissions  
+- Internet connection (for any CDN dependencies)  
 
-Internet connection (for CDN dependencies)
+## Academic Considerations
 
-Academic Considerations
-Learning Outcomes
-Implementation of browser-based audio processing
+### Learning Outcomes
+- Implementation of browser-based audio processing  
+- Application of linguistic analysis algorithms  
+- User experience design for educational tools  
 
-Application of linguistic analysis algorithms
-
-User experience design for educational tools
-
-Future Enhancements
-Integration with cloud-based speech recognition APIs
-
-Multi-language support
-
-Advanced machine learning models for feedback generation
+## Future Enhancements
+- Integration with cloud-based speech recognition APIs  
+- Multi-language support  
+- Advanced machine learning models for feedback generation  
